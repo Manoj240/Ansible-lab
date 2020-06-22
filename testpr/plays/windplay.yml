@@ -1,0 +1,17 @@
+---
+- hosts: other
+  tasks:
+  - name: removing the folder
+    win_file:
+      path: C:\Temp
+      state: directory
+  - name: Restart a service
+    win_service:
+      name: spooler
+      state: stopped
+  - name: create a notepad service
+    win_service:
+      name: mknotepad
+      path: C:\Windows\system32\notepad.exe
+      display_name: Manoj notepad
+      description: Created service with ansible

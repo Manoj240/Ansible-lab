@@ -1,0 +1,6 @@
+---
+- hosts: other
+  gather_facts: no
+  tasks:
+  - name: ping the windows machine
+    win_ping:

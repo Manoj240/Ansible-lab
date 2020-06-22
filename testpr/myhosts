@@ -1,0 +1,8 @@
+[own]
+localhost
+
+[other]
+testendpoint.bluthreathunt.local
+
+[linux]
+localhost

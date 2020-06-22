@@ -1,0 +1,9 @@
+---
+- hosts: other
+  gather_facts: yes
+  tasks:
+  - name: ping the windows machine
+    win_ping:
+  - name: This task will display values
+    debug:
+      msg: "{{ ansible_system }}"

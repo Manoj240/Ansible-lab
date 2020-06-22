@@ -1,0 +1,18 @@
+---
+- hosts: other
+  tasks:
+  - name: print a message on screen
+    win_command: "whoami"
+    register: runninguser
+    ignore_errors: yes
+  - name: display user
+    debug:
+      msg: "{{runninguser}}"
+  - name: display user name only
+    debug:
+      msg: "{{runninguser.stdout}}"
+    when: runninguser.stdout == ""
+  - name: Display the error as well
+    debug:
+      msg: "{{runninguser.stderr}}"
+    when: not runninguser.stderr == ""

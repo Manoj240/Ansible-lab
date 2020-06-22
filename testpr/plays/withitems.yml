@@ -1,0 +1,11 @@
+---
+- hosts: other
+  tasks:
+  - name: create "{{ item }}" directories using list_items
+    win_file:
+      path: "{{item}}"
+      state: directory
+    with_items:
+    - C:\Temp5
+    - C:\Temp6
+    - C:\Temp7

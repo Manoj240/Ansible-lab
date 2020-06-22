@@ -1,0 +1,16 @@
+---
+- hosts: other
+  tasks:
+  - name: Create a file when my powershell version is 5
+    win_file:
+      path: C:\Temp3
+      state: directory
+    when: ansible_powershell_version == 5
+  - name: create a folder when my powershell version is not 5
+    win_file:
+      path: C:\Temp4
+      state: directory
+    when: not ansible_powershell_version == 5
+  - name: print the total memory
+    debug:
+      msg: "Total memory is {{ ansible_memtotal_mb }}"
